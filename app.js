@@ -1,4 +1,7 @@
-//Ruthii was here
+/**
+ * Main express application entry point
+ * @author Tremaine Buchanan
+ */
 'use strict'
 
 const express = require('express'),
@@ -6,7 +9,7 @@ const express = require('express'),
       favicon = require('serve-favicon'),
       logger = require('morgan'),
       cookieParser = require('cookie-parser'),
-      bodyParser = require('body-parser'),   
+      bodyParser = require('body-parser'),
       routes = require('./routes/index'),
       srcDir = __dirname + "/src/"
 
