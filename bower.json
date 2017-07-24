@@ -5,5 +5,10 @@
     "**/.*",
     "node_modules",
     "components"
-  ]
+  ],
+  "dependencies": {
+    "angular": "^1.6.5",
+    "bulma": "^0.4.4",
+    "angular-route": "^1.6.5"
+  }
 }
