@@ -5,11 +5,7 @@ const express = require('express'),
       logger = require('morgan'),
       cookieParser = require('cookie-parser'),
       bodyParser = require('body-parser'),
-      /************* Endpoints ****************
-       ****************************************/
       routes = require('./routes/index'),
-      /********** End of Endpoints ************
-       ****************************************/
       srcDir = __dirname + "/src/"
 
 var app = express();
