@@ -1,0 +1,9 @@
+{
+  "name": "case-mgr-v2",
+  "version": "0.0.1",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "components"
+  ]
+}
