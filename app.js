@@ -4,7 +4,7 @@ const express = require('express'),
       favicon = require('serve-favicon'),
       logger = require('morgan'),
       cookieParser = require('cookie-parser'),
-      bodyParser = require('body-parser'),
+      bodyParser = require('body-parser'),   
       routes = require('./routes/index'),
       srcDir = __dirname + "/src/"
 
@@ -20,5 +20,11 @@ app.use(express.static(srcDir));
 app.set('port', process.env.PORT || 3000);
 
 app.use('/', routes);
+
+app.set('port', process.env.PORT || 3000);
+
+var server = app.listen(app.get('port'), function() {
+  console.log('Express server listening on port ' + server.address().port);
+});
 
 module.exports = app;
