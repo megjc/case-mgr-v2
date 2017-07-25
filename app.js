@@ -4,6 +4,8 @@
  */
 'use strict'
 
+require('dotenv').config()
+
 const express = require('express'),
       path = require('path'),
       favicon = require('serve-favicon'),
@@ -11,6 +13,7 @@ const express = require('express'),
       cookieParser = require('cookie-parser'),
       bodyParser = require('body-parser'),
       routes = require('./routes/index'),
+      acquisitions = require('./routes/acquisitions/routes'),
       srcDir = __dirname + "/src/"
 
 var app = express();
@@ -22,9 +25,9 @@ app.locals.ENV_DEVELOPMENT = env == 'development';
 // app.use(favicon(__dirname + '/public/img/favicon.ico'));
 app.use(bodyParser.json());
 app.use(express.static(srcDir));
-app.set('port', process.env.PORT || 3000);
 
 app.use('/', routes);
+app.use('/api', acquisitions)
 
 app.set('port', process.env.PORT || 3000);
 
