@@ -5,7 +5,8 @@
     function config($routeProvider) {
       $routeProvider.when('/dashboard/apps/casemgr/acquisition',{
         templateUrl: 'templates/casemgr/list.html',
-        controller: 'casemgr as vm',
+        controller: 'casemgr',
+        controllerAs: 'vm',
         title: 'Acquisition List'
       })
     }
