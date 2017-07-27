@@ -4,12 +4,12 @@
     <meta charset="utf-8">
     <title ng-bind="title + '&dash; Ministry of Economic Growth and Job Creation'"></title>
     <link href="vendor/bulma/css/bulma.css" rel="stylesheet"/>
-    <!-- <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" /> -->
+    <link href="vendor/components-font-awesome/css/font-awesome.min.css" rel="stylesheet" />
     <link href="assets/main.css" rel="stylesheet" />
   </head>
-  <body>
+  <body style="padding-top:20px;">
     <div class="container">
-      <ng-view></ng-view>
+      <ng-view $autoscroll="true"></ng-view>
     </div>
     <script src="vendor/angular/angular.js"></script>
     <script src="vendor/angular-route/angular-route.min.js"></script>

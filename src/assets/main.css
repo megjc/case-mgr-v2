@@ -1,11 +1,10 @@
-.table>tbody>tr:hover, .is-active{
+.table>tbody>tr:hover, .navbar-start>a:hover, .navbar-end>a:hover, .is-active{
 	background-color: #2780E3;
 	color: #FFFFFF;
 }
 
-a:hover{
-	color: #2C3E50;
-	text-decoration: none;
+.table>thead>tr:hover{
+	background-color: #FFFFFF;
 }
 
 .table>tbody>tr>td{
@@ -14,4 +13,23 @@ a:hover{
 
 .custom-hr{
 	border-top: 2px solid #2780E3;
+}
+
+body{
+	font-family: 'Source Sans Pro', sans-serif;
+	font-size: 15px;
+	/*margin-bottom: 400px;*/
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6{
+	font-weight: bold;
+}
+
+.table>tbody>tr>td{
+	cursor: pointer;
 }
