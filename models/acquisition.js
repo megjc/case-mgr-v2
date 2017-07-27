@@ -3,7 +3,7 @@
 const model = require('./base').model
 
 const SQL = {
-    GET: 'SELECT * FROM property'
+    GET: 'SELECT title, location FROM  acquisition '
 }
 
 exports.index = (cb)=>{
