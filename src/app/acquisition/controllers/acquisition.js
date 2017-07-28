@@ -28,10 +28,13 @@
         })
     }
 
+    /**
+     * [show description]
+     * @param  {[type]} id [description]
+     * @return {[type]}    [description]
+     */
     function show(id){
-      $location.path('/dashboard/apps/casemgr/acquisition/edit/'+ id)
+      $location.path('/dashboard/apps/casemgr/acquisition/details/'+ id)
     }
-
-
   }
 })();

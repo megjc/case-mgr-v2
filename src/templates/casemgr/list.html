@@ -1,5 +1,4 @@
 <div ng-include="'templates/casemgr/menu.html'"></div>
-
 <div class="columns">
   <input type="text" class="column ng-pristine ng-untouched ng-valid ng-empty" placeholder="Type here to filter mail by sender or subject" ng-model="search">
 </div>
@@ -13,9 +12,9 @@
     <thead>
       <tr>
         <th>File Title</th>
-        <th>Property</th>
-        <th>Names of Property Owner</th>
-        <th>Payment</th>
+        <th>Location</th>
+        <th>Property Owner</th>
+        <th>Amount</th>
       </tr>
     </thead>
     <tbody>
@@ -23,7 +22,7 @@
         <td>{{acquisition.title}}</td>
         <td>{{acquisition.location}}</td>
         <td>{{acquisition.first_name +" "+ acquisition.last_name}}</td>
-        <td>{{acquisition.amount}}</td>
+        <td>{{acquisition.amount !== null ? acquisition.amount : 0}}</td>
       </tr>
     </tbody>
   </table>
