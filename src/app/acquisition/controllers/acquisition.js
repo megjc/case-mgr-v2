@@ -5,13 +5,16 @@
         .module('apps.casemgr')
         .controller('casemgr', casemgr);
 
-    casemgr.$inject = ['casemgrSrv'];
+    casemgr.$inject = ['casemgrSrv', '$location'];
 
-	function casemgr(casemgrSrv){
+	function casemgr(casemgrSrv, $location){
 		var vm = this
     vm.acquisitions = []
-    getAcquisitions();
+    vm.show = show
 		
+    getAcquisitions()
+
+
     /**
      * getAcquisitions get acquisitions
      */
@@ -24,5 +27,11 @@
           vm.acquisitions = []
         })
     }
+
+    function show(id){
+      $location.path('/dashboard/apps/casemgr/acquisition/edit/'+ id)
+    }
+
+
   }
 })();
