@@ -20,7 +20,7 @@
     <tbody>
       <tr ng-repeat="acquisition in vm.acquisitions" ng-click="vm.show(acquisition.id)">
         <td>{{acquisition.title}}</td>
-        <td>{{acquisition.location}}</td>
+        <td>{{acquisition.description}}</td>
         <td>{{acquisition.first_name +" "+ acquisition.last_name}}</td>
         <td>{{acquisition.amount !== null ? acquisition.amount : 0}}</td>
       </tr>

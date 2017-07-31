@@ -3,7 +3,7 @@
 const model = require('./base').model
 
 const SQL = {
-  GET: 'SELECT  *, a.title, p.location, o.first_name, o.last_name, r.amount ' +
+  GET: 'SELECT  *, a.title, p.volume, o.first_name, o.last_name, r.amount ' +
          'FROM acquisition as a ' +  
          'INNER JOIN owner AS o ON a.id = o.accession_id ' +
          'INNER JOIN property AS p ON o.id = p.owner_id ' +
