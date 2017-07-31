@@ -10,7 +10,11 @@
 	function casemgr(casemgrSrv, $location){
 		var vm = this
     vm.acquisitions = []
+    vm.acquisitionsData = {}
+    vm.ownersData = {}
+    vm.propertiesData = {}
     vm.show = show
+    vm.post = post;
 		
     getAcquisitions()
 
@@ -26,6 +30,60 @@
         }).catch(function(error){
           vm.acquisitions = []
         })
+    }
+
+    function postAcquisition(){
+      casemgrSrv
+        .createAcquisition(vm.acquisitionsData).then(function(res){
+            vm.message = {
+              success: res.data.success,
+              text: res.data.text,
+              show: true
+            }
+            if(res.data.success == true) {
+            }
+          }).catch(function(error){
+
+          })
+    }
+
+    function postOwner(){
+      casemgrSrv
+        .createOwner(vm.ownersData).then(function(res){
+          vm.message = {
+            success: res.data.success,
+            text: res.data.text,
+            show: true
+          }
+          if(res.data.success == true){
+            
+          }
+        }).catch(function(error){
+
+        })
+    }
+
+    function postPorperty(){ 
+      casemgrSrv
+        .createProperty(vm.propertiesData).then(function(res){
+          vm.message = {
+            success: res.data.success,
+            text: res.data.text,
+            show: true
+          } 
+          if(res.data.success == true){
+            
+          }
+        }).catch(function(error){
+
+        })
+    }
+
+    function post(){
+      postAcquisition()
+      postPorperty()
+      postOwner()
+      $anchorScroll()
     }
 
     /**

@@ -7,7 +7,9 @@ const SQL = {
          'FROM acquisition as a ' +  
          'INNER JOIN owner AS o ON a.id = o.accession_id ' +
          'INNER JOIN property AS p ON o.id = p.owner_id ' +
-         'INNER JOIN receipt AS r ON o.id = r.owner_id ' 
+         'INNER JOIN receipt AS r ON o.id = r.owner_id ',
+
+  CREATE: 'INSERT INTO tickets SET ?'
 }	
 
 exports.index = (cb)=>{
@@ -17,3 +19,9 @@ exports.index = (cb)=>{
  	})
 }
 
+exports.create = (values, cb)=>{
+  model.query(SQL.CREATE, values, (err, id)=>{
+    if(err) return cb(err)
+    cb(null, id)
+  })
+}

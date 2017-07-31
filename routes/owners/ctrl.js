@@ -1,12 +1,12 @@
 'use strict'
 
-const acquisition = require('../../models/acquisition')
+const owner = require('../../models/owner')
 
-let acquisitions = {
+let owners = {
   index: (req, res)=>{
-    acquisition.index((err, acquisitions)=>{
+    owner.index((err, owners)=>{
       if(err) return res.json(err)
-      return res.json(acquisitions)
+      return res.json(owners)
     })
   },
   create: (req, res)=>{
@@ -18,4 +18,4 @@ let acquisitions = {
   }
 }
 
-exports.acquisitions = acquisitions
+exports.owners = owners

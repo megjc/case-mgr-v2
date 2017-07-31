@@ -9,7 +9,10 @@
 
     function casemgrSrv($http){
     	var services = {
-            getAcquisitions : getAcquisitions
+            getAcquisitions : getAcquisitions,
+            createAcquisition : createAcquisition,
+            createOwner : createOwner,
+            createProperty : createProperty
     	}
 
         /**
@@ -20,6 +23,18 @@
             return $http.get('/api/acquisitions')
                     .then(handleSuccess)
                     .catch(handleError)
+        }
+
+        function createAcquisition(){
+            return $http.post('/api/acquisitions', data)
+        }
+
+        function createOwner(){
+            return $http.post('/api/owners', data)
+        }
+
+        function createProperty(){
+            return $http.post('/api/properties', data)
         }
 
         /**
