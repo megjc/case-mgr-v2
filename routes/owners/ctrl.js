@@ -10,9 +10,9 @@ let owners = {
     })
   },
   create: (req, res)=>{
-    ticket.create(values, (err, id)=>{
-      if(err) return res.json(err)
-      return res.json({text: 'Your infomation has been succesfully submitted.', id: id, success: true})
+    owner.create(values, (err, id)=>{
+      if(err) return   res.status(500).send(json(err))
+      return res.json({text: 'Your information has been successfully submitted.', id: id, success: true})
     })
 
   }

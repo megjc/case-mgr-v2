@@ -9,7 +9,7 @@ const SQL = {
          'INNER JOIN property AS p ON o.id = p.owner_id ' +
          'INNER JOIN receipt AS r ON o.id = r.owner_id ',
 
-  CREATE: 'INSERT INTO tickets SET ?'
+  CREATE: 'INSERT INTO acquisition SET ?'
 }	
 
 exports.index = (cb)=>{
@@ -20,8 +20,14 @@ exports.index = (cb)=>{
 }
 
 exports.create = (values, cb)=>{
-  model.query(SQL.CREATE, values, (err, id)=>{
+  let options = {
+    sql: SQL.CREATE,
+    values: {file_id: values.file_id, start_date: values.start_date, end_date: values.end_date, title: values.title, 
+              status: values.status, location: values.location, remarks: values.remarks}
+  }
+
+  model.query(options, (err, id)=>{
     if(err) return cb(err)
     cb(null, id)
-  })
+  }) 
 }

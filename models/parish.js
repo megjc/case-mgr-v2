@@ -3,22 +3,22 @@
 const model = require('./base').model
 
 const SQL = {
-  GET: 'SELECT  * FROM properties',
+  GET: 'SELECT  * FROM parishes',
 
-  CREATE: 'INSERT INTO properties SET ?'
+  CREATE: 'INSERT INTO parishes SET ?'
 }	
 
 exports.index = (cb)=>{
-  model.query(SQL.GET, (err, properties)=>{
+  model.query(SQL.GET, (err, parishes)=>{
     if(err) return cb(err)
-    cb(null, properties)
+    cb(null, parishes)
  	})
 }
 
 exports.create = (values, cb)=>{
   let options = {
     sql: SQL.CREATE,
-    values: {description: values.description, folio: values.folio, volume: values.volume, is_liber: values.is_liber}
+    values: {title: values.title}
   }
 
   model.query(options, (err, id)=>{

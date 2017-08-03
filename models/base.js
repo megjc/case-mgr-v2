@@ -2,7 +2,7 @@
 const mysql = require('mysql')
 let pool = mysql.createPool({
    connectionLimit: 10,//process.env.MYSQL_CONN_LIMIT,
-    // multipleStatements: 10,//process.env.MYSQL_MULTIQUERIES,
+    multipleStatements: true,//process.env.MYSQL_MULTIQUERIES,
     host: process.env.DB_HOST,
     user: process.env.DB_USER,
     password: process.env.DB_PASS,

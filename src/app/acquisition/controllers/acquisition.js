@@ -14,8 +14,10 @@
     vm.ownersData = {}
     vm.propertiesData = {}
     vm.show = show
-    vm.post = post;
-		
+    vm.post = post
+    vm.postAcquisition = postAcquisition
+		vm.jsDateToSql = jsDateToSql
+    
     getAcquisitions()
 
 
@@ -35,44 +37,42 @@
     function postAcquisition(){
       casemgrSrv
         .createAcquisition(vm.acquisitionsData).then(function(res){
-            vm.message = {
-              success: res.data.success,
-              text: res.data.text,
-              show: true
-            }
-            if(res.data.success == true) {
+            if(res.data.id){
+              vm.ownersData.accession_id = res.data.id
             }
           }).catch(function(error){
 
           })
     }
 
+    function postParish(){
+      casemgrSrv
+        .createAcquisition(vm.parishesData).then(function(res){
+            if(res.data.id){
+              vm.propertiesData.parish_id = res.data.id
+            }
+          }).catch(function(error){
+
+          })
+    }
+
+
     function postOwner(){
       casemgrSrv
         .createOwner(vm.ownersData).then(function(res){
-          vm.message = {
-            success: res.data.success,
-            text: res.data.text,
-            show: true
-          }
-          if(res.data.success == true){
-            
+          if(res.data.id){
+            vm.propertiesData.parish_id = res.data.id
           }
         }).catch(function(error){
 
         })
     }
 
-    function postPorperty(){ 
+    function postProperty(){ 
       casemgrSrv
         .createProperty(vm.propertiesData).then(function(res){
-          vm.message = {
-            success: res.data.success,
-            text: res.data.text,
-            show: true
-          } 
-          if(res.data.success == true){
-            
+          if(res.data.id){
+            vm.ownersData.parish_id = res.data.id
           }
         }).catch(function(error){
 
@@ -81,9 +81,19 @@
 
     function post(){
       postAcquisition()
-      postPorperty()
+      postParish()
+      postProperty()
       postOwner()
       $anchorScroll()
+    }
+
+    function jsDateToSql(date){
+      return date.getUTCFullYear() + '-' +
+            ('00' + (date.getUTCMonth() + 1)).slice(-2) + '-' +
+            ('00' + date.getUTCDate()).slice(-2) + ' ' +
+            ('00' + date.getUTCHours()).slice(-2) + ':' +
+            ('00' + date.getUTCMinutes()).slice(-2) + ':' +
+            ('00' + date.getUTCSeconds()).slice(-2);
     }
 
     /**

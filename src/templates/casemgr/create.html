@@ -7,62 +7,69 @@
       <div class="field">
         <label class="label">File Number</label>
         <div class="control">
-          <input class="input" type="text" placeholder=" ">
+          <input class="input" type="text" ng-model="vm.acquisitionsData.file_id" placeholder=" ">
         </div>
+      </div>
 
-      <br>
+      
       <div class="field">
         <label class="label">File Start Date</label>
         <div class="control">
-          <input class="input" type="date" placeholder="mm/dd/yyyy">
+          <input class="input" type="date" ng-model="start_date" ng-blur="vm.acquisitionsData.start_date = vm.jsDateToSql(start_date)" placeholder="mm/dd/yyyy">
+        </div>
       </div>
 
-      <br>
+      
       <div class="field">
         <label class="label">File End Date </label>
         <div class="control">
-          <input class="input" type="date" placeholder="mm/dd/yyyy">
+          <input class="input" type="date" ng-model="end_date" ng-blur="vm.acquisitionsData.end_date = vm.jsDateToSql(end_date)" placeholder="mm/dd/yyyy">
+        </div>
       </div>
 
-      <br>
+      
       <div class="field">
         <label class="label">File Title </label>
         <div class="control">
-          <input class="input" type="text" placeholder="">
+          <input class="input" type="text" ng-model="vm.acquisitionsData.title" placeholder="">
+        </div>
       </div>
-      <br>
+
       <div class="field">
         <label class="label">Property </label>
         <div class="control">
           <input class="input" type="text" placeholder="">
+        </div>
       </div>
-      <br>
+
       <div class="field">
         <label class="label">Property Owner's First Name </label>
         <div class="control">
           <input class="input" type="text" placeholder="">
       </div>
-      <br>
+      
       <div class="field">
         <label class="label">Property Owner's Last Name </label>
         <div class="control">
           <input class="input" type="text" placeholder="">
+        </div>
       </div>
-      <br>
+
       <div class="field">
         <label class="label">Volume Number </label>
         <div class="control">
           <input class="input" type="text" placeholder="">
+        </div>
       </div>
 
-      <br>
       <div class="field">
         <label class="label">Folio Number</label>
         <div class="control">
           <input class="input" type="text" placeholder="">
+        </div>
       </div>
 
-      <br>
+      
       <div class="field">
         <label class="label">Parish</label>
           <div class="control">
@@ -88,74 +95,77 @@
           </div>
         </div>
 
-      <div class="field">
-          <label class="label">Currency </label>
         <div class="field">
-          <div class="control">
-            <label class="radio">
-              <input type="radio" name="Currency">
-              JMD
-            </label>
-            <label class="radio">
-              <input type="radio" name="Currency ">
-              GBP
-            </label>
-            <label class="radio">
-              <input type="radio" name="Currency">
-              None Seen
-            </label>
+            <label class="label">Currency </label>
+          <div class="field">
+            <div class="control">
+              <label class="radio">
+                <input type="radio" name="Currency">
+                JMD
+              </label>
+              <label class="radio">
+                <input type="radio" name="Currency ">
+                GBP
+              </label>
+              <label class="radio">
+                <input type="radio" name="Currency">
+                None Seen
+              </label>
+            </div>
           </div>
         </div>
-      </div>
 
-      <br>
-      <div class="field">
-        <label class="label">Payment</label>
-        <div class="control">
-          <input class="input" type="text" placeholder="">
-      </div>
+        
+        <div class="field">
+          <label class="label">Payment</label>
+          <div class="control">
+            <input class="input" type="text" placeholder="">
+          </div>
+        </div>
+        
 
-      <br>
-
-      <div class="field">
+        <div class="field">
           <label class="label">File Status </label>
+          <div class="field">
+            <div class="control">
+              <label class="radio">
+                <input type="radio" ng-model="vm.acquisitionsData.status" value="Active" name="file status">
+                Active
+              </label>
+              <label class="radio">
+                <input type="radio" ng-model="vm.acquisitionsData.status" value="Inactive" name="file status">
+                Inactive
+              </label>
+              <label class="radio">
+                <input type="radio" ng-model="vm.acquisitionsData.status" value="Closed" name="file status">
+                Closed
+              </label>
+            </div>
+          </div>
+        </div>
+
         <div class="field">
+          <label class="label">Location </label>
           <div class="control">
-            <label class="radio">
-              <input type="radio" name="file status">
-              Active
-            </label>
-            <label class="radio">
-              <input type="radio" name="file status">
-              Inactive
-            </label>
-            <label class="radio">
-              <input type="radio" name="file status">
-              Closed
-            </label>
+            <input class="input" ng-model="vm.acquisitionsData.location" type="text" placeholder="">
+          </div>
+        </div>
+
+        
+        <div class="field">
+          <label class="label">Remarks</label>
+          <div class="control">
+            <textarea ng-model="vm.acquisitionsData.remarks" class="textarea"></textarea>
           </div>
         </div>
       </div>
 
-
-      <div class="field">
-        <label class="label">Location </label>
         <div class="control">
-          <input class="input" type="text" placeholder="">
+          <button class="button is-dark">Cancel</button> &nbsp;&nbsp;
+          <button class="button is-success" ng-click="vm.post()">Save</button>
       </div>
-
-      <br>
-      <div class="field">
-        <label class="label">Remarks</label>
-        <div class="control">
-          <textarea class="textarea"></textarea>
-        </div>
-      </div>
-  </div>
-
-  <div class="control">
-    <button class="button is-dark">Cancel</button> &nbsp;&nbsp;
-    <button class="button is-success">Save</button>
+    </form>
   </div>
 </div>
-</div>
+
+{{vm.acquisitionsData}}

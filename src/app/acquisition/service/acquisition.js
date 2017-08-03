@@ -25,16 +25,20 @@
                     .catch(handleError)
         }
 
-        function createAcquisition(){
+        function createAcquisition(data){
             return $http.post('/api/acquisitions', data)
         }
 
-        function createOwner(){
+        function createOwner(data){
             return $http.post('/api/owners', data)
         }
 
-        function createProperty(){
+        function createProperty(data){
             return $http.post('/api/properties', data)
+        }
+
+        function createParish(data){
+            return $http.post('/api/parishes', data)
         }
 
         /**

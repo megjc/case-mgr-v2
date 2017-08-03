@@ -9,12 +9,22 @@ let acquisitions = {
       return res.json(acquisitions)
     })
   },
-  create: (req, res)=>{
-    ticket.create(values, (err, id)=>{
-      if(err) return res.json(err)
-      return res.json({text: 'Your infomation has been succesfully submitted.', id: id, success: true})
-    })
+   create: (req, res)=>{
+    let values = {
+      file_id: req.body.file_id,
+      start_date: req.body.start_date,
+      end_date: req.body.end_date,
+      remarks: req.body.remarks,
+      status: req.body.status,
+      location: req.body.location,
+      title: req.body.title,
+      
+    }
 
+    acquisition.create(values, (err, id)=>{
+      if(err) return res.json(err)
+      return res.json(values)
+    })
   }
 }
 

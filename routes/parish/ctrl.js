@@ -1,16 +1,16 @@
 'use strict'
 
-const property = require('../../model/property')
+const parish = require('../../models/parish')
 
-let properties = {
+let parishes = {
   index: (req, res)=>{
-    property.index((err, properties)=>{
+    parish.index((err, parishes)=>{
       if(err) return res.json(err)
-      return res.json(properties)
+      return res.json(parishes)
     })
   },
   create: (req, res)=>{
-    property.create(values, (err, id)=>{
+    parish.create(values, (err, id)=>{
       if(err) return res.json(err)
       return res.json({text: 'Your information has been successfully submitted.', id: id, success: true})
     })
@@ -18,4 +18,4 @@ let properties = {
   }
 }
 
-exports.properties = properties
+exports.parishes = parishes
