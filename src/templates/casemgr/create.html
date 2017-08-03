@@ -3,13 +3,13 @@
 <div class="columns">
   <div class="column is-5">
 
-    <form name="Create">
+    <form name="Create" ng-init = "vm.parishData.title = '-Select a Parish-'">
       <div class="field">
         <label class="label">File Number</label>
         <div class="control">
-          <input class="input" type="text" placeholder="" ng-model="vm.acquisitionsData.file_id" required >
+          <input class="input" type="text" placeholder="" ng-model="vm.acquisitionsData.file_id"  required>
         </div>
-        </div>
+      </div>
 
         <br>
         <div class="field">
@@ -17,14 +17,14 @@
           <div class="control">
             <input class="input" type="date" placeholder="mm/dd/yyyy" ng-model="vm.acquisitionsData.start_date" required>
         </div>
-        </div>
+      </div>
 
         <br>
         <div class="field">
           <label class="label">File End Date </label>
           <div class="control">
             <input class="input" type="date" placeholder="mm/dd/yyyy" ng-model="vm.acquisitionsData.end_date" required>
-        </div>
+          </div>
         </div>
 
         <br>
@@ -32,7 +32,7 @@
           <label class="label">File Title </label>
           <div class="control">
             <input class="input" type="text" placeholder="" ng-model="vm.acquisitionsData.title" required>
-        </div>
+          </div>
         </div>
 
         <br>
@@ -40,15 +40,15 @@
           <label class="label">Property </label>
           <div class="control">
             <input class="input" type="text" placeholder="" ng-model="vm.propertiesData.description" required>
-        </div>
+          </div>
         </div>
 
         <br>
         <div class="field">
           <label class="label">Owner's First Name </label>
           <div class="control">
-            <input class="input" type="text" placeholder="" ng-model="vm.ownersData.first_name" required >
-        </div>
+            <input class="input" type="text" placeholder="" ng-model="vm.ownersData.first_name"  required>
+          </div>
         </div>
 
         <br>
@@ -56,15 +56,15 @@
           <label class="label">Owner's Last Name </label>
           <div class="control">
             <input class="input" type="text" placeholder="" ng-model="vm.ownersData.last_name" required>
-        </div>
+          </div>
         </div>
 
         <br>
         <div class="field">
           <label class="label">Volume Number </label>
           <div class="control">
-            <input class="input" type="text" placeholder="" ng-model="vm.propertiesData.volume" required >
-        </div>
+            <input class="input" type="text" placeholder="" ng-model="vm.propertiesData.volume" required>
+          </div>
         </div>
 
         <br>
@@ -72,30 +72,34 @@
           <label class="label">Folio Number</label>
           <div class="control">
             <input class="input" type="text" placeholder="" ng-model="vm.propertiesData.folio" required>
-        </div>
+          </div>
         </div>
 
         <br>
         <div class="field">
             <label class="label">Liber New Series </label>
-          <div class="field">
-            <div class="control">
-              <label class="radio">
-                <input type="radio" name="file status" ng-model="vm.acquisitionData.is_liber" required>
-                Yes
-              </label>
-              <label class="radio">
-                <input type="radio" name="file status" ng-model="vm.acquisitionData.is_liber" required>
-                No
-              </label>
+            <div class="field">
+              <div class="control">
+                <label class="radio">
+                  <input type="radio" name="liber" ng-model="vm.propertiesData.is_liber" value ="Yes" required>
+                  Yes
+                </label>
+                <label class="radio">
+                  <input type="radio" name="liber" ng-model="vm.propertiesData.is_liber"  value ="No" required>
+                  No
+                </label>
+              </div>
+            </div>
+        </div>
+
 
         <br>
         <br>
         <div class="field">
           <label class="label">Parish</label>
             <div class="control">
-              <div class="select" ng-model="vm.parishData.title" required >
-                <select >
+              <div class="select">
+                <select ng-model="vm.parishData.title" required>
                   <option>-Select a Parish-</option>
                   <option>Clarendon</option>
                   <option>Hanover</option>
@@ -116,30 +120,29 @@
             </div>
           </div>
 
-<br>
+          <br>
           <div class="field">
             <label class="label">Amount</label>
             <div class="control">
               <input class="input" type="text" placeholder="" ng-model="vm.receiptData.amount" required>
-          </div>
+            </div>
           </div>
 
           <br>
-
           <div class="field">
-              <label class="label">Currency </label>
+            <label class="label">Currency </label>
             <div class="field">
               <div class="control">
                 <label class="radio" >
-                  <input type="radio" name="currency" ng-model="vm.receiptData.currency" required>
+                  <input type="radio" name="currency" ng-model="vm.receiptData.currency" value = "JMD">
                   JMD
                 </label>
                 <label class="radio">
-                  <input type="radio" name="currency" ng-model="vm.receiptData.currency" required>
+                  <input type="radio" name="currency" ng-model="vm.receiptData.currency" value = "GBP">
                   GBP
                 </label>
                 <label class="radio">
-                  <input type="radio" name="currency" ng-model="vm.receiptData.currency" required>
+                  <input type="radio" name="currency" ng-model="vm.receiptData.currency" value = "None Seen">
                   None Seen
                 </label>
               </div>
@@ -148,21 +151,21 @@
 
 
 
-  <br>
+        <br>
         <div class="field">
-            <label class="label">File Status </label>
+          <label class="label">File Status </label>
           <div class="field">
             <div class="control">
               <label class="radio">
-                <input type="radio" name="file status" ng-model="vm.acquisitionsData.status" required>
+                <input type="radio" name="file status" ng-model="vm.acquisitionsData.status" value = "Active">
                 Active
               </label>
               <label class="radio">
-                <input type="radio" name="file status" ng-model="vm.acquisitionsData.status" required>
+                <input type="radio" name="file status" ng-model="vm.acquisitionsData.status" value = "Inactive" >
                 Inactive
               </label>
               <label class="radio">
-                <input type="radio" name="file status" ng-model="vm.acquisitionsData.status" required>
+                <input type="radio" name="file status" ng-model="vm.acquisitionsData.status" value = "Closed">
                 Closed
               </label>
             </div>
@@ -170,12 +173,11 @@
         </div>
 
         <br>
-
         <div class="field">
           <label class="label">Location </label>
           <div class="control">
             <input class="input" type="text" placeholder="" ng-model="vm.propertiesData.location" required>
-        </div>
+          </div>
         </div>
 
         <br>
@@ -188,9 +190,10 @@
 
         <div class="control">
           <button class="button is-dark" type="reset"  ng-click="">Cancel</button> &nbsp;&nbsp;
-          <button class="button is-success" ng-disabled="create.$pristine|| create.$invalid"">Save</button>
+            <button class="button is-success" type="submit" ng-disabled="Create.$invalid || vm.parishData.title ===
+            '-Select a Parish-' || vm.receiptData.currency === null || vm.acquisitionsData.status === null" >Save</button>
         </div>
-
-</form>
-</div>
+        <!-- && vm.parishData.title!==-Select a Parish- && !vm.receiptData.currency && !vm.acquisitionsData.status -->
+      </form>
+    </div>
 </div>
