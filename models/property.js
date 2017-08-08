@@ -3,9 +3,9 @@
 const model = require('./base').model
 
 const SQL = {
-  GET: 'SELECT  * FROM properties',
+  GET: 'SELECT  * FROM property',
 
-  CREATE: 'INSERT INTO properties SET ?'
+  CREATE: 'INSERT INTO property SET ?'
 }	
 
 exports.index = (cb)=>{
@@ -18,7 +18,7 @@ exports.index = (cb)=>{
 exports.create = (values, cb)=>{
   let options = {
     sql: SQL.CREATE,
-    values: {description: values.description, folio: values.folio, volume: values.volume, is_liber: values.is_liber}
+    values: {description: values.description, owner_id: values.owner_id, parish_id: values.parish_id, folio: values.folio, volume: values.volume, is_liber: values.is_liber}
   }
 
   model.query(options, (err, id)=>{

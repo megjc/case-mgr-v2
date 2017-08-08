@@ -2,8 +2,15 @@
 
 <div class="columns">
   <div class="column is-5">
+    <div class="notification is-success" ng-show="vm.showSuccess">
+      Success Message
+    </div>
 
-    <form name="Create" ng-init = "vm.parishData.title = '-Select a Parish-'">
+    <div class="notification is-danger" ng-show="vm.showError">
+      Error Message
+    </div>
+
+    <form name="Create" ng-submit="vm.post()" novalidate>
       <div class="field">
         <label class="label">File Number</label>
         <div class="control">
@@ -81,25 +88,23 @@
             <div class="field">
               <div class="control">
                 <label class="radio">
-                  <input type="radio" name="liber" ng-model="vm.propertiesData.is_liber" value ="Yes" required>
+                  <input type="radio" name="liber" ng-model="vm.propertiesData.is_liber" value ="1" required>
                   Yes
                 </label>
                 <label class="radio">
-                  <input type="radio" name="liber" ng-model="vm.propertiesData.is_liber"  value ="No" required>
+                  <input type="radio" name="liber" ng-model="vm.propertiesData.is_liber"  value ="0" required>
                   No
                 </label>
               </div>
             </div>
         </div>
 
-
-        <br>
         <br>
         <div class="field">
           <label class="label">Parish</label>
             <div class="control">
               <div class="select">
-                <select ng-model="vm.parishData.title" required>
+                <select ng-model="vm.parishesData.title" required>
                   <option>-Select a Parish-</option>
                   <option>Clarendon</option>
                   <option>Hanover</option>
@@ -149,8 +154,6 @@
           </div>
         </div>
 
-
-
         <br>
         <div class="field">
           <label class="label">File Status </label>
@@ -176,7 +179,7 @@
         <div class="field">
           <label class="label">Location </label>
           <div class="control">
-            <input class="input" type="text" placeholder="" ng-model="vm.propertiesData.location" required>
+            <input class="input" type="text" placeholder="" ng-model="vm.acquisitionsData.location" required>
           </div>
         </div>
 
@@ -189,11 +192,10 @@
         </div>
 
         <div class="control">
-          <button class="button is-dark" type="reset"  ng-click="">Cancel</button> &nbsp;&nbsp;
-            <button class="button is-success" type="submit" ng-disabled="Create.$invalid || vm.parishData.title ===
-            '-Select a Parish-' || vm.receiptData.currency === null || vm.acquisitionsData.status === null" >Save</button>
+          <button class="button is-dark" type="reset">Cancel</button>
+
+          <button class="button is-success" type="submit" ng-disabled="Create.$invalid || vm.parishesData.title === '-Select a Parish-' || vm.receiptData.currency.$dirty || vm.acquisitionsData.status.$dirty" >Save</button>
         </div>
-        <!-- && vm.parishData.title!==-Select a Parish- && !vm.receiptData.currency && !vm.acquisitionsData.status -->
       </form>
     </div>
 </div>

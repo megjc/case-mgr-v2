@@ -14,6 +14,10 @@ const express = require('express'),
       bodyParser = require('body-parser'),
       routes = require('./routes/index'),
       acquisitions = require('./routes/acquisitions/routes'),
+      owners = require('./routes/owners/routes'),
+      parishes = require('./routes/parishes/routes'),
+      properties = require('./routes/properties/routes'),
+
       srcDir = __dirname + "/src/"
 
 var app = express();
@@ -31,6 +35,9 @@ app.use(express.static(srcDir));
 
 app.use('/', routes);
 app.use('/api', acquisitions)
+app.use('/api', owners)
+app.use('/api', parishes)
+app.use('/api', properties)
 
 // app.set('port', process.env.PORT || 8080);
 

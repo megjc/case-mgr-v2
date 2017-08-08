@@ -3,9 +3,9 @@
 const model = require('./base').model
 
 const SQL = {
-  GET: 'SELECT  * FROM parishes',
+  GET: 'SELECT * FROM parish',
 
-  CREATE: 'INSERT INTO parishes SET ?'
+  CREATE: 'INSERT INTO parish SET ?'
 }	
 
 exports.index = (cb)=>{

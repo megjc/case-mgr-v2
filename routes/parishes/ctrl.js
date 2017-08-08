@@ -5,14 +5,19 @@ const parish = require('../../models/parish')
 let parishes = {
   index: (req, res)=>{
     parish.index((err, parishes)=>{
-      if(err) return res.json(err)
+      if(err) return res.status(500).json(err)
       return res.json(parishes)
     })
   },
   create: (req, res)=>{
+    let values = {
+      title: req.body.title
+    }
+
     parish.create(values, (err, id)=>{
-      if(err) return res.json(err)
-      return res.json({text: 'Your information has been successfully submitted.', id: id, success: true})
+      console.log('parishes' + JSON.stringify(values))
+      if(err) return res.status(500).json(err)
+      return res.json(id.insertId)
     })
 
   }

@@ -12,7 +12,8 @@
             getAcquisitions : getAcquisitions,
             createAcquisition : createAcquisition,
             createOwner : createOwner,
-            createProperty : createProperty
+            createProperty : createProperty,
+            createParish : createParish,
     	}
 
         /**
@@ -25,18 +26,38 @@
                     .catch(handleError)
         }
 
+        /**
+         * [createAcquisition description]
+         * @param  {[type]} data [description]
+         * @return {[type]}      [description]
+         */
         function createAcquisition(data){
             return $http.post('/api/acquisitions', data)
         }
 
+        /**
+         * [createOwner description]
+         * @param  {[type]} data [description]
+         * @return {[type]}      [description]
+         */
         function createOwner(data){
             return $http.post('/api/owners', data)
         }
 
+        /**
+         * [createProperty description]
+         * @param  {[type]} data [description]
+         * @return {[type]}      [description]
+         */
         function createProperty(data){
             return $http.post('/api/properties', data)
         }
 
+        /**
+         * [createParish description]
+         * @param  {[type]} data [description]
+         * @return {[type]}      [description]
+         */
         function createParish(data){
             return $http.post('/api/parishes', data)
         }
@@ -58,7 +79,7 @@
         function handleError(res){
             return res
         }
-	
+    
     	return services;
     }
 })();

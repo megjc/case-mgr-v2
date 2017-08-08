@@ -4,7 +4,7 @@ const express = require('express'),
 
 let router = express.Router()
 
-router.get('/owners', api.owners.index)
-router.post('/owners', api.owners.create)
+router.get('/parishes', api.parishes.index)
+router.post('/parishes', api.parishes.create)
 
 module.exports = router
