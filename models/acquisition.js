@@ -6,10 +6,12 @@ const SQL = {
   GET: 'SELECT  *, a.title, p.volume, o.first_name, o.last_name, r.amount ' +
          'FROM acquisition as a ' +  
          'INNER JOIN owner AS o ON a.id = o.accession_id ' +
-         'INNER JOIN property AS p ON o.id = p.owner_id ' +
+         'INNER JOIN property AS p ON o.property_id = p.id ' +
          'INNER JOIN receipt AS r ON o.id = r.owner_id ',
 
-  CREATE: 'INSERT INTO acquisition SET ?'
+  CREATE: 'INSERT INTO acquisition SET ?',
+
+  SHOW: 'SELECT * FROM acquisition WHERE id = ?',
 }	
 
 exports.index = (cb)=>{
@@ -30,4 +32,11 @@ exports.create = (values, cb)=>{
     if(err) return cb(err)
     cb(null, id)
   }) 
+}
+
+exports.show = (cb)=>{
+  model.query(SQL.SHOW, (err, acquisitions)=>{
+    if(err) return cb(err)
+    cb(null, acquisitions)
+  })
 }

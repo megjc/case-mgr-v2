@@ -1,28 +1,43 @@
 <div ng-include="'templates/casemgr/menu.html'"></div>
 
 <div class="columns">
-
-<section class="section">
-	<div class="container">
-		<div class="column is-5">
+	<div class="column is-5">
+		
 		<div class="card is-fullwidth">
 			<header class="card-header ">
-				<style>
-				header {background:#f2f2f2}
-				</style>
-				<p class="card-header-title">File Number</p> <a class="card-header-item">Edit</a>
-				<a class="card-header-icon card-toggle">
-				</a>
+				<div class="card-header-title">File Number</div> 
+				<a id="icon" class="card-header-icon">
+	      			<span class="icon">
+	        			<i class="fa fa-pencil"></i>
+	      			</span>
+	      			<strong>Edit</strong>
+    			</a>
 			</header>
 			<div class="card-content">
 				<div class="content">
-					Content goes here <small>Small text</small>
 				</div>
 			</div>
+			<br>
 		</div>
-		<br>
 
-		<div class="card is-fullwidth">
+
+<div class="modal is-active">
+  <div class="modal-background"></div>
+  <div class="modal-content">
+    <!-- Any other Bulma elements you want -->
+  </div>
+  <button class="modal-close is-large"></button>
+</div>
+
+
+
+
+
+
+
+
+
+		<!-- <div class="card is-fullwidth">
 			<header class="card-header">
 				<p class="card-header-title">Start Date</p> <a class="card-header-item">Edit</a>
 				<a class="card-header-icon card-toggle">
@@ -31,7 +46,7 @@
 			<div class="card-content">
 				<div class="content">
 					Some more content. Look at all this whitespace. <small>(Unless you are on mobile)</small>
-		</div>
+				</div>
 
 			</div>
 		</div>
@@ -46,192 +61,199 @@
 			<div class="card-content">
 				<div class="content">
 					Some more content. Look at all this whitespace. <small>(Unless you are on mobile)</small>
+				</div>
+			</div>
 		</div>
-	</div>
-</div>
-<br>
+		<br>
 
-<div class="card is-fullwidth">
-	<header class="card-header">
-		<p class="card-header-title">File Title</p> <a class="card-header-item">Edit</a>
-		<a class="card-header-icon card-toggle">
-		</a>
-	</header>
-	<div class="card-content">
-		<div class="content">
-			Some more content. Look at all this whitespace. <small>(Unless you are on mobile)</small>
+		<div class="card is-fullwidth">
+			<header class="card-header">
+				<p class="card-header-title">File Title</p> <a class="card-header-item">Edit</a>
+				<a class="card-header-icon card-toggle">
+				</a>
+			</header>
+			<div class="card-content">
+				<div class="content">
+					Some more content. Look at all this whitespace. <small>(Unless you are on mobile)</small>
+				</div>
+			</div>
 		</div>
-</div>
-</div>
-<br>
+		<br>
 
-<div class="card is-fullwidth">
-	<header class="card-header">
-		<p class="card-header-title">Property</p> <a class="card-header-item">Edit</a>
-		<a class="card-header-icon card-toggle">
-		</a>
-	</header>
-	<div class="card-content">
-		<div class="content">
-			Some more content. Look at all this whitespace. <small>(Unless you are on mobile)</small>
+		<div class="card is-fullwidth">
+			<header class="card-header">
+				<p class="card-header-title">Property</p> <a class="card-header-item">Edit</a>
+				<a class="card-header-icon card-toggle">
+				</a>
+			</header>
+			<div class="card-content">
+				<div class="content">
+					Some more content. Look at all this whitespace. <small>(Unless you are on mobile)</small>
+				</div>
+			</div>
 		</div>
-</div>
-</div>
-<br>
+		<br>
 
-<div class="card is-fullwidth">
-	<header class="card-header">
-		<p class="card-header-title">Owner's First Name</p> <a class="card-header-item">Edit</a>
-		<a class="card-header-icon card-toggle">
-		</a>
-	</header>
-	<div class="card-content">
-		<div class="content">
-			Some more content. Look at all this whitespace. <small>(Unless you are on mobile)</small>
-</div>
-</div>
-</div>
-<br>
-<div class="card is-fullwidth">
-	<header class="card-header">
-		<p class="card-header-title">Owner's Last Name</p> <a class="card-header-item">Edit</a>
-		<a class="card-header-icon card-toggle">
-		</a>
-	</header>
-	<div class="card-content">
-		<div class="content">
-			Some more content. Look at all this whitespace. <small>(Unless you are on mobile)</small>
+		<div class="card is-fullwidth">
+			<header class="card-header">
+				<p class="card-header-title">Owner's First Name</p> <a class="card-header-item">Edit</a>
+				<a class="card-header-icon card-toggle">
+				</a>
+			</header>
+			<div class="card-content">
+				<div class="content">
+					Some more content. Look at all this whitespace. <small>(Unless you are on mobile)</small>
+				</div>
+			</div>
 		</div>
+		<br>
 
-	</div>
-</div>
-<br>
-<div class="card is-fullwidth">
-	<header class="card-header">
-		<p class="card-header-title">Volume Number</p> <a class="card-header-item">Edit</a>
-		<a class="card-header-icon card-toggle">
-		</a>
-	</header>
-	<div class="card-content">
-		<div class="content">
-			Some more content. Look at all this whitespace. <small>(Unless you are on mobile)</small>
-</div>
+		<div class="card is-fullwidth">
+			<header class="card-header">
+				<p class="card-header-title">Owner's Last Name</p> <a class="card-header-item">Edit</a>
+				<a class="card-header-icon card-toggle">
+				</a>
+			</header>
+			<div class="card-content">
+				<div class="content">
+					Some more content. Look at all this whitespace. <small>(Unless you are on mobile)</small>
+				</div>
 
-	</div>
-</div>
-<br>
-<div class="card is-fullwidth">
-	<header class="card-header">
-		<p class="card-header-title">Folio Number</p> <a class="card-header-item">Edit</a>
-		<a class="card-header-icon card-toggle">
-		</a>
-	</header>
-	<div class="card-content">
-		<div class="content">
-			Some more content. Look at all this whitespace. <small>(Unless you are on mobile)</small>
+			</div>
 		</div>
+		<br>
 
-	</div>
-</div>
-<br>
-<div class="card is-fullwidth">
-	<header class="card-header">
-		<p class="card-header-title">Libre New Series</p> <a class="card-header-item">Edit</a>
-		<a class="card-header-icon card-toggle">
-		</a>
-	</header>
-	<div class="card-content">
-		<div class="content">
-			Some more content. Look at all this whitespace. <small>(Unless you are on mobile)</small>
+		<div class="card is-fullwidth">
+			<header class="card-header">
+				<p class="card-header-title">Volume Number</p> <a class="card-header-item">Edit</a>
+				<a class="card-header-icon card-toggle">
+				</a>
+			</header>
+			<div class="card-content">
+				<div class="content">
+					Some more content. Look at all this whitespace. <small>(Unless you are on mobile)</small>
+				</div>
+			</div>
 		</div>
+		<br>
 
-	</div>
-</div>
-<br>
-<div class="card is-fullwidth">
-	<header class="card-header">
-		<p class="card-header-title">Parish</p> <a class="card-header-item">Edit</a>
-		<a class="card-header-icon card-toggle">
-		</a>
-	</header>
-	<div class="card-content">
-		<div class="content">
-			Some more content. Look at all this whitespace. <small>(Unless you are on mobile)</small>
-</div>
+		<div class="card is-fullwidth">
+			<header class="card-header">
+				<p class="card-header-title">Folio Number</p> <a class="card-header-item">Edit</a>
+				<a class="card-header-icon card-toggle">
+				</a>
+			</header>
+			<div class="card-content">
+				<div class="content">
+					Some more content. Look at all this whitespace. <small>(Unless you are on mobile)</small>
+				</div>
 
-	</div>
-</div>
-<br>
-<div class="card is-fullwidth">
-	<header class="card-header">
-		<p class="card-header-title">Amount</p> <a class="card-header-item">Edit</a>
-		<a class="card-header-icon card-toggle">
-		</a>
-	</header>
-	<div class="card-content">
-		<div class="content">
-			Some more content. Look at all this whitespace. <small>(Unless you are on mobile)</small>
+			</div>
+		</div>
+		<br>
+
+		<div class="card is-fullwidth">
+			<header class="card-header">
+				<p class="card-header-title">Libre New Series</p> <a class="card-header-item">Edit</a>
+				<a class="card-header-icon card-toggle">
+				</a>
+			</header>
+			<div class="card-content">
+				<div class="content">
+					Some more content. Look at all this whitespace. <small>(Unless you are on mobile)</small>
+				</div>
+
+			</div>
+		</div>
+		<br>
+
+		<div class="card is-fullwidth">
+			<header class="card-header">
+				<p class="card-header-title">Parish</p> <a class="card-header-item">Edit</a>
+				<a class="card-header-icon card-toggle">
+				</a>
+			</header>
+			<div class="card-content">
+				<div class="content">
+					Some more content. Look at all this whitespace. <small>(Unless you are on mobile)</small>
 		</div>
 
-	</div>
-</div>
-<br>
-<div class="card is-fullwidth">
-	<header class="card-header">
-		<p class="card-header-title">Currency</p> <a class="card-header-item">Edit</a>
-		<a class="card-header-icon card-toggle">
-		</a>
-	</header>
-	<div class="card-content">
-		<div class="content">
-			Some more content. Look at all this whitespace. <small>(Unless you are on mobile)</small>
+			</div>
 		</div>
+		<br>
 
-	</div>
-</div>
-<br>
-<div class="card is-fullwidth">
-	<header class="card-header">
-		<p class="card-header-title">File Status</p> <a class="card-header-item">Edit</a>
-		<a class="card-header-icon card-toggle">
-		</a>
-	</header>
-	<div class="card-content">
-		<div class="content">
-			Some more content. Look at all this whitespace. <small>(Unless you are on mobile)</small>
+		<div class="card is-fullwidth">
+			<header class="card-header">
+				<p class="card-header-title">Amount</p> <a class="card-header-item">Edit</a>
+				<a class="card-header-icon card-toggle">
+				</a>
+			</header>
+			<div class="card-content">
+				<div class="content">
+					Some more content. Look at all this whitespace. <small>(Unless you are on mobile)</small>
+				</div>
+
+			</div>
 		</div>
+		<br>
 
-	</div>
-</div>
-<br>
-<div class="card is-fullwidth">
-	<header class="card-header">
-		<p class="card-header-title">Location</p> <a class="card-header-item">Edit</a>
-		<a class="card-header-icon card-toggle">
-		</a>
-	</header>
-	<div class="card-content">
-		<div class="content">
-			Some more content. Look at all this whitespace. <small>(Unless you are on mobile)</small>
+		<div class="card is-fullwidth">
+			<header class="card-header">
+				<p class="card-header-title">Currency</p> <a class="card-header-item">Edit</a>
+				<a class="card-header-icon card-toggle">
+				</a>
+			</header>
+			<div class="card-content">
+				<div class="content">
+					Some more content. Look at all this whitespace. <small>(Unless you are on mobile)</small>
+				</div>
+
+			</div>
 		</div>
+		<br>
 
-	</div>
-</div>
-<br>
-<div class="card is-fullwidth">
-	<header class="card-header">
-		<p class="card-header-title">Remarks</p> <a class="card-header-item">Edit</a>
-		<a class="card-header-icon card-toggle">
-		</a>
-	</header>
-	<div class="card-content">
-		<div class="content">
-			Some more content. Look at all this whitespace. <small>(Unless you are on mobile)</small>
+		<div class="card is-fullwidth">
+			<header class="card-header">
+				<p class="card-header-title">File Status</p> <a class="card-header-item">Edit</a>
+				<a class="card-header-icon card-toggle">
+				</a>
+			</header>
+			<div class="card-content">
+				<div class="content">
+					Some more content. Look at all this whitespace. <small>(Unless you are on mobile)</small>
+				</div>
+
+			</div>
 		</div>
+		<br>
 
-	</div>
-</div>
-<br>
+		<div class="card is-fullwidth">
+			<header class="card-header">
+				<p class="card-header-title">Location</p> <a class="card-header-item">Edit</a>
+				<a class="card-header-icon card-toggle">
+				</a>
+			</header>
+			<div class="card-content">
+				<div class="content">
+					Some more content. Look at all this whitespace. <small>(Unless you are on mobile)</small>
+				</div>
 
+			</div>
+		</div>
+		<br>
+
+		<div class="card is-fullwidth">
+			<header class="card-header">
+				<p class="card-header-title">Remarks</p> <a class="card-header-item">Edit</a>
+				<a class="card-header-icon card-toggle">
+				</a>
+			</header>
+			<div class="card-content">
+				<div class="content">
+					Some more content. Look at all this whitespace. <small>(Unless you are on mobile)</small>
+				</div>
+
+			</div>
+		</div>
+		<br> -->
 </div>
-</section>

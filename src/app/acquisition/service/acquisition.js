@@ -5,7 +5,7 @@
         .module('apps.casemgr')
         .service('casemgrSrv', casemgrSrv);
 
-    casemgrSrv.$inject = ['$http']
+    casemgrSrv.$inject = ['$http', '$routeParams']
 
     function casemgrSrv($http){
     	var services = {
@@ -13,7 +13,7 @@
             createAcquisition : createAcquisition,
             createOwner : createOwner,
             createProperty : createProperty,
-            createParish : createParish,
+            createReceipt : createReceipt
     	}
 
         /**
@@ -22,10 +22,9 @@
          */
         function getAcquisitions(){
             return $http.get('/api/acquisitions')
-                    .then(handleSuccess)
-                    .catch(handleError)
+                .then(handleSuccess)
+                .catch(handleError)
         }
-
         /**
          * [createAcquisition description]
          * @param  {[type]} data [description]
@@ -45,7 +44,7 @@
         }
 
         /**
-         * [createProperty description]
+         * [createAcquisition description]
          * @param  {[type]} data [description]
          * @return {[type]}      [description]
          */
@@ -54,12 +53,12 @@
         }
 
         /**
-         * [createParish description]
+         * [createReceipt description]
          * @param  {[type]} data [description]
          * @return {[type]}      [description]
          */
-        function createParish(data){
-            return $http.post('/api/parishes', data)
+        function createReceipt(data){
+            return $http.post('/api/receipts', data)
         }
 
         /**

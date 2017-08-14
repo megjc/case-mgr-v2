@@ -5,6 +5,7 @@ const express = require('express'),
 let router = express.Router()
 
 router.get('/properties', api.properties.index)
+router.get('/properties/:id', api.properties.show)
 router.post('/properties', api.properties.create)
 
 module.exports = router

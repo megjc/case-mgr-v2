@@ -25,6 +25,13 @@ let acquisitions = {
       if(err) return res.status(500).json(err)
       return res.json(id.insertId)
     })
+  },
+  show: (req, res)=>{
+    acquisition.show(req.params.id, (err, acquisition)=>{
+      if(err) return res.status(500).json(err)
+
+      return res.json(acquisition)
+    })
   }
 }
 

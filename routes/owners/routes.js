@@ -5,6 +5,7 @@ const express = require('express'),
 let router = express.Router()
 
 router.get('/owners', api.owners.index)
+router.get('/owners/:id', api.owners.show)
 router.post('/owners', api.owners.create)
 
 module.exports = router

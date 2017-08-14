@@ -33,3 +33,35 @@ h6{
 .table>tbody>tr>td{
 	cursor: pointer;
 }
+
+header {background:#f2f2f2}
+
+/*.card-header-icon>strong:hover{
+    text-decoration: underline;
+}*/
+
+.card-header-icon>span>i:hover + {
+	text-decoration: underline;
+	color: #FFFFFF;
+}
+
+.card-header-icon>span{
+	color: #000000;
+}
+
+/*table {
+  table-layout: fixed;
+}
+*/
+ td:nth-child(1) {
+  width: 50%;
+}
+
+ td:nth-child(2),  
+ td:nth-child(3) {
+  width: 20%;
+} 
+
+ td:nth-child(5){
+ 	width: 10%
+ }

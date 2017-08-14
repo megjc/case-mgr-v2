@@ -5,12 +5,13 @@
         .module('apps.casemgr')
         .controller('casemgr', casemgr);
 
-    casemgr.$inject = ['casemgrSrv', '$location', '$anchorScroll' , '$window', '$q'];
+    casemgr.$inject = ['casemgrSrv', '$location', '$anchorScroll' , '$window', '$q', '$routeParams'];
 
-	function casemgr(casemgrSrv, $location, $anchorScroll, $window, $q){
+	function casemgr(casemgrSrv, $location, $anchorScroll, $window, $q, $routeParams){
 		var vm = this
 
-    vm.acquisitions = [] 
+    vm.acquisitions = []
+    vm.parishes = [] 
     vm.show = show
     vm.post = post
 
@@ -27,6 +28,9 @@
       if($location.path() === '/dashboard/apps/casemgr/acquisition/create'){
         reset()
       }
+      if($location.path() === '/dashboard/apps/casemgr/acquisition/details/'+$routeParams.id){
+        // getById($routeParams.id)
+      }
     }
 
     /**
@@ -39,6 +43,22 @@
           vm.acquisitions = acquisitions
         }).catch(function(error){
           vm.acquisitions = []
+        })
+    }
+
+    /**
+     * [getParishes description]
+     * @return {[type]} [description]
+     */
+    function getParishes(){
+      casemgrSrv
+        .getParishes()
+        .then(function(parishes){
+          vm.parishes = parishes
+        }).catch(function(error){
+          vm.parishes = []
+          vm.showSuccess = false
+          vm.showError = true
         })
     }
 
@@ -63,26 +83,6 @@
     }
 
     /**
-     * [postParishes description]
-     * @return {[type]} [description]
-     */
-    function postParishes(){
-      return $q((resolve, reject) => {              
-        casemgrSrv
-          .createParish(vm.parishesData).then(function(res){
-              console.log('function: postParishes')
-              if(res.data){
-                vm.propertiesData.parish_id = res.data
-                console.log('parish_id ' + res.data)
-                resolve()
-              }
-            }).catch(function(error){
-              reject(error)
-            })
-      })
-    }
-
-    /**
      * [postOwners description]
      * @return {[type]} [description]
      */
@@ -92,7 +92,8 @@
           .createOwner(vm.ownersData).then(function(res){
             console.log('function: postOwners')
             if(res.data){
-              vm.propertiesData.owners_id = res.data
+              vm.propertiesData.owner_id = res.data
+              vm.receiptData.owner_id = res.data
               console.log('owners_id ' + res.data)
               resolve()
             }
@@ -112,8 +113,27 @@
           .createProperty(vm.propertiesData).then(function(res){
             console.log('function: postProperties') 
             if(res.data){
-              vm.ownersData.propery_id = res.data
-              console.log('propery_id ' + res.data)
+              vm.ownersData.property_id = res.data
+              vm.receiptData.property_id = res.data
+              console.log('property_id' + res.data)
+              resolve()
+            }
+          }).catch(function(error){
+              reject(error)
+          })
+      })
+    }
+
+    /**
+     * [postReceipts description]
+     * @return {[type]} [description]
+     */
+    function postReceipts(){
+      return $q((resolve, reject) => {
+        casemgrSrv
+          .createReceipt(vm.receiptData).then(function(res){
+            console.log('function: postReceipts') 
+            if(res.data){
               resolve()
             }
           }).catch(function(error){
@@ -127,22 +147,30 @@
      * @return {[type]} [description]
      */
     function post(){
-      postParishes()
       postAcquisitions()
-        .then(() => postOwners()
-            .then(() => postProperties()
-              .then(() => {
-                vm.showSuccess = true
-                vm.showError = false
-                reset()
-              })))
+        .then(() => postProperties()
+            .then(() => postOwners()
+              .then(() => postReceipts()
+                .then(() => {
+                  vm.showSuccess = true
+                  vm.showError = false
+                  reset()
+                }))))
         .catch(() => {
           vm.showSuccess = false
           vm.showError = true})
-        console.log(vm.showSuccess)
       $window.scrollTo(0, 0)
-      // $location.hash('top')
-      // $anchorScroll()
+      $location.hash('top')
+      $anchorScroll()
+    }
+
+    /**
+     * [getById description]
+     * @param  {[type]} id [description]
+     * @return {[type]}    [description]
+     */
+    function getById(id){
+      
     }
     
     /**
@@ -153,9 +181,9 @@
       vm.acquisitionsData = {remarks: null,  file_id: null, title: null,  status: null,  location: null,
                             start_date: null, end_date: null}
       vm.ownersData = {first_name: null, last_name: null, property_id: null, accession_id: null}
-      vm.propertiesData = {description: null, volume: null, folio: null, is_liber: null, owner_id: null }
-      vm.parishesData = {title: "-Select a Parish-"}
-      vm.receiptData = {amount: null}
+      vm.propertiesData = {description: null, volume: null, folio: null, is_liber: null, owner_id: null, parish_id: null}
+      vm.parishesData = {id: null, title: null}
+      vm.receiptData = {owner_id: null, property_id: null, amount: null, currency: null, receipt_date: null}
     }
 
     /**

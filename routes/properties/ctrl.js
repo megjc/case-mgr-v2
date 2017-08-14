@@ -24,7 +24,13 @@ let properties = {
       if(err) return res.status(500).json(err)
       return res.json(id.insertId);
     })
+  },
+  show: (req, res)=>{
+    parish.show(req.params.id, (err, parish)=>{
+      if(err) return res.status(500).json(err)
 
+      return res.json(parish)
+    })
   }
 }
 

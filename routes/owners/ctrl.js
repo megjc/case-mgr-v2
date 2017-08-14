@@ -22,7 +22,13 @@ let owners = {
       if(err) return res.status(500).json(err)
       return res.json(id.insertId)
     })
+  },
+  show: (req, res)=>{
+    owner.show(req.params.id, (err, owner)=>{
+      if(err) return res.status(500).json(err)
 
+      return res.json(owner)
+    })
   }
 }
 

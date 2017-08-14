@@ -5,7 +5,9 @@ const model = require('./base').model
 const SQL = {
   GET: 'SELECT * FROM owner',
 
-  CREATE: 'INSERT INTO owner SET ?'
+  CREATE: 'INSERT INTO owner SET ?',
+
+  SHOW: 'SELECT * FROM owner WHERE id = ?',
 }	
 
 exports.index = (cb)=>{
@@ -26,4 +28,11 @@ exports.create = (values, cb)=>{
     if(err) return cb(err)
     cb(null, id)
   }) 
+}
+
+exports.show = (cb)=>{
+  model.query(SQL.SHOW, (err, owners)=>{
+    if(err) return cb(err)
+    cb(null, owners)
+  })
 }

@@ -12,11 +12,12 @@ const express = require('express'),
       logger = require('morgan'),
       cookieParser = require('cookie-parser'),
       bodyParser = require('body-parser'),
-      routes = require('./routes/index'),
+      // routes = require('./routes/index'),
       acquisitions = require('./routes/acquisitions/routes'),
       owners = require('./routes/owners/routes'),
       parishes = require('./routes/parishes/routes'),
       properties = require('./routes/properties/routes'),
+      receipts = require('./routes/receipts/routes'),
 
       srcDir = __dirname + "/src/"
 
@@ -33,16 +34,11 @@ app.use(bodyParser.urlencoded({
 app.use(bodyParser.json());
 app.use(express.static(srcDir));
 
-app.use('/', routes);
+// app.use('/', routes);
 app.use('/api', acquisitions)
 app.use('/api', owners)
 app.use('/api', parishes)
 app.use('/api', properties)
-
-// app.set('port', process.env.PORT || 8080);
-
-// var server = app.listen(app.get('port'), function() {
-//   console.log('Express server listening on port ' + server.address().port);
-// });
+app.use('/api', receipts)
 
 module.exports = app;

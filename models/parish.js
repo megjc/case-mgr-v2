@@ -5,7 +5,9 @@ const model = require('./base').model
 const SQL = {
   GET: 'SELECT * FROM parish',
 
-  CREATE: 'INSERT INTO parish SET ?'
+  CREATE: 'INSERT INTO parish SET ?',
+
+  SHOW: 'SELECT * FROM parish WHERE id = ?',
 }	
 
 exports.index = (cb)=>{
@@ -25,4 +27,11 @@ exports.create = (values, cb)=>{
     if(err) return cb(err)
     cb(null, id)
   }) 
+}
+
+exports.show = (cb)=>{
+  model.query(SQL.SHOW, (err, parishes)=>{
+    if(err) return cb(err)
+    cb(null, parishes)
+  })
 }
